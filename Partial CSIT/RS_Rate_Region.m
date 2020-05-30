@@ -27,9 +27,6 @@ p_c_hat = U(:,1);
 P_c=SNR*0.8;
 P_k=SNR-P_c;
 
-[U,~,~]=svd(H);
-p_c_hat=U(:,1);
-
 p1=h1'/norm(h1)*sqrt(P_k*0.5);
 p2=h2'/norm(h2)*sqrt(P_k*0.5);
 pc=p_c_hat*sqrt(P_c);   
