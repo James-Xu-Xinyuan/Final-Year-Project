@@ -1,5 +1,6 @@
 function [p1,p2,pc] = initialize_precoders(H_est, SNR, m)
 % m: method number
+warning('off')
 
 h1 = H_est(:,:,1);
 h2 = H_est(:,:,2);
