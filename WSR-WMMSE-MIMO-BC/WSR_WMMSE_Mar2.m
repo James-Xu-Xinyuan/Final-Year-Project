@@ -4,14 +4,14 @@ K = 2; % two users
 Q =2; % each user has two antennas
 
 SNRdB =[-10,0,10,20];
-% Etx = db2pow(SNRdB); %? is this a design variable? 
-% total block power constraints
 
 weight=[-3,-1:0.05:1,3];
 u2=10.^weight;
 u1=ones(1,length(u2));
 rate1=zeros(length(u2),1);
 rate2=zeros(length(u2),1);
+bias  = 1;
+% bias  = 1/sqrt(2);
 
 theta = pi/3;
 
@@ -23,8 +23,8 @@ for s = 1:length(SNRdB)
     
     iteration  = 1;
     for repetition=1:iteration
-        H(:,:,1)=[1,1,1,1;1,1,1,1];
-        H(:,:,2)=[1, exp(1i*1*theta),exp(1i*2*theta),exp(1i*3*theta);1, exp(1i*1*theta),exp(1i*2*theta),exp(1i*3*theta)];
+         H(:,:,1)=[1,1,1,1;1,1,1,1];
+         H(:,:,2)=[1, exp(1i*1*theta),exp(1i*2*theta),exp(1i*3*theta);1, exp(1i*1*theta),exp(1i*2*theta),exp(1i*3*theta)]*bias;
 %         H(:,:,1)=(1/sqrt(2))*(randn(Q,P)+1i*randn(Q,P));
 %         H(:,:,2)=(1/sqrt(2))*(randn(Q,P)+1i*randn(Q,P));
         % one random pair of channel realization
