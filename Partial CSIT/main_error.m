@@ -36,7 +36,7 @@ for i_SNRdB=1:length(SNRdB)
     %Channel error
     SNR = 10^(SNRdB(i_SNRdB)/10);
     P_t=SNR; %total transmission power, unit norm variance
-    P_e=P_t^(-0.6); %error variance
+    P_e=P_t^(-0.06); %error variance
     
     for i=1:M
         H_error_1(:,:,i)=((randn(Nr,Nt)+j*randn(Nr,Nt))/sqrt(2))*sqrt(P_e);

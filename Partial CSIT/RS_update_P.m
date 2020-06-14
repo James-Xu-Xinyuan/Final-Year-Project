@@ -9,8 +9,7 @@
 function [AWSMSE,p1,p2,pc ]=RS_update_P(H_est,weights,SNR,Uc1,Uc2,U1,U2,tc1,tc2,t1,t2,...
                          psi_c1,psi_c2,psi_1,psi_2,fc1,fc2,f1,f2,vc1,vc2,v1,v2)
    
-    u1=weights(1);
-    u2=weights(2);
+    u1=weights(1);      u2=weights(2);
     
     [Nr,Nt,K] = size(H_est) ;
     

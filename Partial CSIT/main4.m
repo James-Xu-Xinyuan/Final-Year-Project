@@ -3,7 +3,7 @@ LASTN=maxNumCompThreads(1);
 array_index=getenv('PBS_ARRAY_INDEX');
 i_theta=str2num(array_index);
 i1 = str2num(array_index);
-rng(i1); 
+% rng(i1); 
 % This code is to reproduced Figure 8 of 
 % "Sum-Rate Maximization for Linearly Precoded Downlink Multiuser MISO Systems with Partial CSIT: A Rate-Splitting Approach"
 % by Hamdi Joudeh and Bruno Clerks
@@ -78,4 +78,4 @@ for i_SNRdB=1:length(SNRdB)
     
 end %end looping SNR
 
-save('Partial_CSIT_Nt4_30May_rndH','C_NoRs_user1','C_NoRs_user2','C_RS_order1_user1','C_RS_order2_user1','C_RS_order1_user2','C_RS_order2_user2')
+save('Partial_CSIT_Jun12_rndH.mat','C_NoRs_user1','C_NoRs_user2','C_RS_order1_user1','C_RS_order2_user1','C_RS_order1_user2','C_RS_order2_user2')

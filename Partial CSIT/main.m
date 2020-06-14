@@ -136,10 +136,10 @@ ind=find(xx==0);
 plot(x1(ind_ini(1):ind(1)),y1(ind_ini(1):ind(1)))
 hold on,grid on
 
-% title('RS with partial CSIT')
-% % legend('10dB RS','10dB MU-LP','20dB RS','20dB MU-LP','30dB RS','30dB MU-LP')
-% xlabel('R1 (bit/s/Hz)')
-% ylabel('R2 (bit/s/Hz)')
+title('RS with partial CSIT')
+legend('10dB RS','10dB MU-LP','20dB RS','20dB MU-LP','30dB RS','30dB MU-LP')
+xlabel('R1 (bit/s/Hz)')
+ylabel('R2 (bit/s/Hz)')
 
 % save('Partial_CSIT_Nt4','C_NoRS_user1','C_NoRS_user2','C_RS_order1_user1','C_RS_order2_user1','C_RS_order1_user2','C_RS_order2_user2')
 legend('RS','MULP')

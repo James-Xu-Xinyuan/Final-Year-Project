@@ -98,7 +98,7 @@ while (loop)
     U1 = U1/M;          U2 = U2/M;
     
     tc1 = tc1/M;        tc2 = tc2/M;
-    t1 = t1/M;          t2 = T2/M;
+    t1 = t1/M;          t2 = t2/M;
     
     psi_c1 = psi_c1./M;     psi_c2 = psi_c2./M;
     psi_1 = psi_1./M;       psi_2 = psi_2./M;
