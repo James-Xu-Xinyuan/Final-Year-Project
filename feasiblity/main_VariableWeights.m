@@ -16,15 +16,15 @@ rng(i1);
 tolerance = 10^-3;
 Nt=4; 
 Nr=1; 
-SNRdB = 10; % rate region should intersect with axis at around 3
+SNRdB = 20; % rate region should intersect with axis at around 2 to 6
 SNR = 10^(SNRdB/10);
 P_t=SNR; %total transmission power, unit norm variance
 P_e=P_t^(-0.6); %error variance
 
-u2 = [10,3,1,1/3,0.1];
+u2 = [10,3,1,1/3,0.1]; % 5 rate pairs
 u1 = ones(1,length(u2));
 M = 1000;
-R_thresholds = [1,1.5:0.05:3]; 
+R_thresholds = [1,1.5:0.1:5.5,6];  % 43 points
 NoTest = 100; %HPC
 
 for i_weight = 1:5    
@@ -37,7 +37,6 @@ for i_weight = 1:5
 %     i_th
     Rth = R_thresholds(i_th);
     for i_test = 1:NoTest
-% use batch processing in HPC to replace this loop
         % test feasiblity with a lot of random channels
         H_est(:,:,1)= (randn(1,Nt)+j*randn(1,Nt));
         H_est(:,:,1) = H_est(:,:,1)/norm(H_est(:,:,1))*sqrt(Nt);
@@ -79,13 +78,13 @@ for i_weight = 1:5
     
     % caution! save data operation! read write!
     % File might be corrupt.
-    load Feasibility_Jun2_Weights.mat
+    load Feasibility_Jun15_Weights.mat
     Feasibility_rs = Feasibility_rs / NoTest; 
     Feasibility_RS(i_weight,i_th) = Feasibility_rs;
     % approximate real percentage feasibility (probability) as percentage of feasbile channels in tests 
     Feasibility_mulp = Feasibility_mulp/ NoTest; 
     Feasibility_MULP(i_weight,i_th) = Feasibility_mulp;
-    save('Feasibility_Jun2_Weights.mat','Feasibility_RS','Feasibility_MULP');
+    save('Feasibility_Jun15_Weights.mat','Feasibility_RS','Feasibility_MULP');
     clear Feasibility_MULP
     clear Feasibility_RS
 % end     % for i_th
